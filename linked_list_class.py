@@ -19,15 +19,28 @@ class LinkedList:
 #    def judgeListPlace(self,place):
 #        if place 
 
-    def showList(self):
-        all_next = self.head
-        all_values = []
-        while all_next.next != None:
-            all_values.append(all_next.value)
-            all_next = all_next.next
-        all_values.append(all_next.value)
-        return all_values
+    # def showList(self):
+    #     all_next = self.head
+    #     all_values = []
+    #     while all_next.next != None:
+    #         all_values.append(all_next.value)
+    #         all_next = all_next.next
+    #     all_values.append(all_next.value)
+    #     return all_values
        #print(self.head.value) 
+    def enqueue(self,value):
+        head_node=Node(value)
+        head_node.next = self.head
+        self.head = head_node
+    
+    def dequeue(self):
+        value = 0
+        all_next = self.head
+        while all_next.next != None:
+            all_next = all_next.next
+        value = all_next.value
+        del all_next
+        return value
 
     def pushNode(self,value):
         all_next = self.head 
@@ -39,8 +52,6 @@ class LinkedList:
         all_next = self.head
         list_length = self.getListLength()
         node_inserting = Node(value)
-#        print(value)
-#        print(node_inserting.value)
         if place == 0 :
             node_inserting.next = all_next
             
@@ -48,9 +59,7 @@ class LinkedList:
 
         elif (place < 0) or (place > list_length):
             for i in range(list_length):
-                print(all_next.value)
                 all_next = all_next.next
-            print(all_next.value)
             all_next.next = node_inserting
 
         else:
@@ -62,17 +71,21 @@ class LinkedList:
 #途中
     def deleteNode(self,place):
         all_next = self.head
-        for i in range(place-1):
+        for i in range(place):
+            node_connect = all_next
             all_next = all_next.next
-        all_next.next = all_next
-        
+#ループしてる        all_next.next = all_next
+        node_connect = all_next.next
+        del all_next
+    
+    
 
-    # def showList(self):
-    #     all_next = self.head
-    #     while all_next.next != None:
-    #         print(all_next.value)
-    #         all_next = all_next.next
-    #     print(all_next.value)
+    def showList(self):
+        all_next = self.head
+        while all_next.next != None:
+            print(all_next.value)
+            all_next = all_next.next
+        print(all_next.value)
         #print(self.head.value) 
 '''
     def push(self,value):
@@ -105,6 +118,15 @@ print('---')
 link.insertNode(-5,10)
 print(link.showList())
 print(link.getListLength())
+print("---")
+link.deleteNode(2)
+link.showList()
+print("---")
+link.enqueue(9)
+link.showList()
+print('dequeue')
+print(link.dequeue())
+link.showList()
 # #print(link.showList())
 # #insert to last
 # link.insertNode(100,8)
