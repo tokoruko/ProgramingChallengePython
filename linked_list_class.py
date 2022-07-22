@@ -7,7 +7,6 @@ class LinkedList:
     def __init__(self,value):
         self.head = Node(value)
 #        self.head = None
-
     def getListLength(self):
         list_length = 0
         all_next = self.head
@@ -39,7 +38,9 @@ class LinkedList:
         #while all_next.next != None:
         for i in range(self.getListLength()-1):
             all_next = all_next.next
+            element = all_next.next
         all_next.next = None
+        return element
         #del all_next
         #return value
 
@@ -75,7 +76,11 @@ class LinkedList:
         for i in range(place-1):
             #node_connect = all_next
             all_next = all_next.next
-        all_next.next = all_next.next.next
+        node = all_next.next
+        node = node.next
+        del all_next.next
+        all_next.next = node
+#        all_next.next = all_next.next.next
 #メモリから削除したいけどどうやって渡せば？
 #ループしてる        all_next.next = all_next
 # 変数を消すだけになってる       node_connect = all_next.next
@@ -86,10 +91,9 @@ class LinkedList:
         all_next = self.head
         while all_next.next != None:
             all_next = all_next.next
+        
+        
        # all_next
-
-    
-    
 
     def showList(self):
         all_next = self.head
@@ -116,7 +120,7 @@ print(link.showList())
 print(link.getListLength())
 print('---')
 # insert to 0
-link.insertNode(2,1)
+link.insertNode(2,1.5)
 print(link.showList())
 print(link.getListLength())
 print('---')
@@ -137,7 +141,7 @@ print("enqueue")
 link.enqueue(9)
 link.showList()
 print('dequeue')
-link.dequeue()
+print(link.dequeue())
 link.showList()
 print("---\n" + "delete")
 link.deleteNode(2)
