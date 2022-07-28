@@ -38,7 +38,7 @@ class LinkedList:
         #while all_next.next != None:
         for i in range(self.getListLength()-1):
             all_next = all_next.next
-            element = all_next.next
+        element = all_next.next.value
         all_next.next = None
         return element
         #del all_next
@@ -91,6 +91,8 @@ class LinkedList:
         all_next = self.head
         while all_next.next != None:
             all_next = all_next.next
+        element = all_next.value
+        return element
         
         
        # all_next
@@ -137,15 +139,18 @@ print("---")
 #link.deleteNode(2)
 link.showList()
 print("---")
-print("enqueue")
+print("enqueue 9")
 link.enqueue(9)
 link.showList()
-print('dequeue')
+print('dequeue\ndequed value')
 print(link.dequeue())
+print('list')
 link.showList()
 print("---\n" + "delete")
 link.deleteNode(2)
 link.showList()
+print('get value expected 101')
+print(link.getValue())
 # #print(link.showList())
 # #insert to last
 # link.insertNode(100,8)
