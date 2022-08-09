@@ -16,7 +16,7 @@ class Stack:
         stack_length +=1
         current = self.head
         if current.next == None:
-            stack_length=1
+        #    stack_length=1
             return stack_length
         while current.next != None:
             stack_length += 1
@@ -75,7 +75,7 @@ print('----')
 for i in range(4):
     stack.pushValue(i+1)
     print(stack.getValue())
-    print(stack.getStackLength())
+    #print(stack.getStackLength())
 print('---')
 print('get value expected 4')
 print(stack.getValue())
@@ -85,5 +85,6 @@ print(stack.getValue())
 print(stack.getStackLength())
 print('popped value is expected 10 ')
 print(stack.popValue())
-print('after popped last value')
+print(stack.getStackLength())
+print('last value after popped ')
 print(stack.getValue())
