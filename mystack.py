@@ -42,9 +42,11 @@ class Stack:
             #self.head = Node(None)
         else :
             current = self.head 
-            for i in range(self.getStackLength()-1):
+            for i in range(self.getStackLength()-2):
+                #print(current.value)
                 current = current.next
             element = current.next.value
+            
             del current.next
             current.next = None
         return element
