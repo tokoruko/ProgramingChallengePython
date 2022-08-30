@@ -1,47 +1,49 @@
-# class Node:
-#     def __init__(self, key):#,value):
-#         self.key = key
-#         #self.value = value
-#         self.left = None
-#         self.right = None
-
-class Tree:
-    # def __init__(self):
-    #     self.root = None
-
-    def __init__(self,key):
+class Node:
+    def __init__(self, key):#,value):
         self.key = key
         #self.value = value
         self.left = None
         self.right = None
+
+class Tree:
+    def __init__(self):
+        self.root = None
+
+    # def __init__(self,key):
+    #     self.key = key
+    #     #self.value = value
+    #     self.left = None
+    #     self.right = None
     
-    def sarchNode(self,key):
-        if key > self.key:
-            current = self.right
-            self.sarchNode(current.key)
-        elif key < self.key:
-            current = self.left
-            self.sarchNode(current.key)
+    def sarchNode(self):#,key):
+        if 5 > self.key:
+        #    current = self.right
+            self.sarchNode(self.right)
+        elif 5 < self.key:
+        #    current = self.left
+            self.sarchNode(self.left)
         else:
             return self.key
     
     def addNode(self,key):
         #current = self.key
         #targetKey = current.key
-        if  key == self.key :
-            pass
-        elif key > self.key:
-            if self.right == None:
-                self.right = Tree(key)
-            else:
-                current = self.right
-                addNode(current.key)
-        else: 
-            if self.left == None:
-                self.left = Tree(key)
-            else:
-                current = self.left
-                addNode(current.key)
+        self.left =Node(key)
+
+        #if  key == self.key :
+        #   pass
+        # elif key > self.key:
+        #     if self.right == None:
+        #         self.right = Tree(key)
+        #     else:
+        #         current = self.right
+        #         addNode(current.key)
+        # else: 
+        #     if self.left == None:
+        #         self.left = Tree(key)
+        #     else:
+        #         current = self.left
+        #         addNode(current.key)
 
 
     # def sarchNode(self,key):
@@ -81,7 +83,8 @@ class Tree:
     #def deleteNoede(self,key):
 
 print("when 0")
-tree = Tree(50)
+tree = Tree()
+tree.addNode(50)
 tree.addNode(5)
-tree.sarchNode(5)
+tree.sarchNode()
 
